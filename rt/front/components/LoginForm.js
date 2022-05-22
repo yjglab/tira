@@ -3,6 +3,7 @@ import { Button, Form, Input } from "antd";
 import Link from "next/link";
 import styled from "styled-components";
 import PropTypes from "prop-types";
+import useInput from "../hooks/useInput";
 
 // styled css
 const ButtonWrapper = styled.div`
@@ -13,14 +14,8 @@ const FormWrapper = styled(Form)`
 `;
 //
 const LoginForm = ({ setIsLoggedIn }) => {
-  const [id, setId] = useState("");
-  const [pw, setPw] = useState("");
-  const onChangeId = useCallback((e) => {
-    setId(e.target.value);
-  }, []);
-  const onChangePw = useCallback((e) => {
-    setPw(e.target.value);
-  }, []);
+  const [id, onChangeId] = useInput("");
+  const [pw, onChangePw] = useInput("");
 
   const onSubmitForm = useCallback(() => {
     console.log(id, pw);

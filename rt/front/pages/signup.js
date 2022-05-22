@@ -1,22 +1,42 @@
 import Head from "next/head";
 import React, { useCallback, useState } from "react";
-import { Form, Input } from "antd";
+import { Form, Input, Checkbox, Button } from "antd";
+import styled from "styled-components";
 import AppLayout from "../components/AppLayout";
+import useInput from "../hooks/useInput";
 
+const ErrorMessage = styled.div`
+  color: tomato;
+`;
 const Signup = () => {
-  const [id, setId] = useState("");
-  const onChangeId = useCallback((e) => {
-    setId(e.target.value);
+  const [id, onChangeId] = useInput("");
+  const [nickname, onChangeNickname] = useInput("");
+  const [pw, onChangePw] = useInput("");
+  const [pwCheck, setPwCheck] = useState("");
+  const [pwError, setPwError] = useState(false);
+
+  const onChangePwCheck = useCallback(
+    (e) => {
+      setPwCheck(e.target.value);
+      setPwError(e.target.value !== pw);
+    },
+    [pw]
+  );
+  const [term, setTerm] = useState("");
+  const [termError, setTermError] = useState(false);
+  const onChangeTerm = useCallback((e) => {
+    setTerm(e.target.checked);
+    setTermError(false);
   }, []);
-  const [nickname, setNickname] = useState("");
-  const onChangeNickname = useCallback((e) => {
-    setNickname(e.target.value);
-  }, []);
-  const [pw, setPw] = useState("");
-  const onChangePw = useCallback((e) => {
-    setPw(e.target.value);
-  });
-  const onSubmit = useCallback(() => {}, []);
+  const onSubmit = useCallback(() => {
+    if (pw !== pwCheck) {
+      return setPwError(true);
+    }
+    if (!term) {
+      return setTermError(true);
+    }
+    console.log(id, nickname, pw);
+  }, [pw, pwCheck, term]);
   return (
     <>
       <AppLayout>
@@ -60,6 +80,18 @@ const Signup = () => {
               required
               onChange={onChangePwCheck}
             />
+            {pwError && <ErrorMessage>비밀번호 불일치</ErrorMessage>}
+          </div>
+          <div>
+            <Checkbox name="user-term" checked={term} onChange={onChangeTerm}>
+              정보수집약관동의
+            </Checkbox>
+            {termError && <ErrorMessage>필수항목에 체크하세요</ErrorMessage>}
+          </div>
+          <div style={{ marginTop: 10 }}>
+            <Button type="primary" htmlType="submit">
+              등록하기
+            </Button>
           </div>
         </Form>
       </AppLayout>

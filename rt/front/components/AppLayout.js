@@ -5,6 +5,7 @@ import { Input, Menu, Row, Col } from "antd";
 import styled from "styled-components";
 import UserProfile from "../components/UserProfile";
 import LoginForm from "../components/LoginForm";
+import { useSelector } from "react-redux";
 
 // styled css
 const SearchInput = styled(Input.Search)`
@@ -12,7 +13,8 @@ const SearchInput = styled(Input.Search)`
 `;
 // index, profile, signup공통
 const AppLayout = ({ children }) => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const isLoggedIn = useSelector((state) => state.user.isLoggedIn);
+
   return (
     <div>
       <Menu mode="horizontal">
@@ -31,17 +33,13 @@ const AppLayout = ({ children }) => {
         </Menu.Item>
         <Menu.Item>
           <Link href="/signup">
-            <a>회원되기</a>
+            <a>회원등록</a>
           </Link>
         </Menu.Item>
       </Menu>
       <Row gutter={8}>
         <Col xs={24} md={6}>
-          {isLoggedIn ? (
-            <UserProfile setIsLoggedIn={setIsLoggedIn} />
-          ) : (
-            <LoginForm setIsLoggedIn={setIsLoggedIn} />
-          )}
+          {isLoggedIn ? <UserProfile /> : <LoginForm />}
         </Col>
         <Col xs={24} md={12}>
           {children}

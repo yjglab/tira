@@ -1,13 +1,16 @@
 import Head from "next/head";
 import React, { useCallback, useState } from "react";
-import { Form, Input, Checkbox, Button } from "antd";
+import { Form, Input, Checkbox, Button, Alert } from "antd";
 import styled from "styled-components";
 import AppLayout from "../components/AppLayout";
 import useInput from "../hooks/useInput";
 
+// styled
 const ErrorMessage = styled.div`
   color: tomato;
 `;
+
+//
 const Signup = () => {
   const [id, onChangeId] = useInput("");
   const [nickname, onChangeNickname] = useInput("");
@@ -86,7 +89,13 @@ const Signup = () => {
             <Checkbox name="user-term" checked={term} onChange={onChangeTerm}>
               정보수집약관동의
             </Checkbox>
-            {termError && <ErrorMessage>필수항목에 체크하세요</ErrorMessage>}
+            {termError && (
+              <Alert
+                type="error"
+                message="필수항목에 체크하세요"
+                showIcon
+              ></Alert>
+            )}
           </div>
           <div style={{ marginTop: 10 }}>
             <Button type="primary" htmlType="submit">

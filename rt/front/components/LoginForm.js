@@ -2,7 +2,7 @@ import React, { useState, useCallback } from "react";
 import { useDispatch } from "react-redux";
 import Link from "next/link";
 import useInput from "../hooks/useInput";
-import { loginAction } from "../reducers";
+import { loginAction } from "../reducers/user";
 
 import { Button, Form, Input } from "antd";
 // styled css

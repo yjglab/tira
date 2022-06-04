@@ -25,13 +25,13 @@ export const SIGN_UP_REQUEST = "SIGN_UP_REQUEST";
 export const SIGN_UP_SUCCESS = "SIGN_UP_SUCCESS";
 export const SIGN_UP_FAILURE = "SIGN_UP_FAILURE";
 
-export const PEER_REQUEST = "PEER_REQUEST";
-export const PEER_SUCCESS = "PEER_SUCCESS";
-export const PEER_FAILURE = "PEER_FAILURE";
+export const LINK_PEER_REQUEST = "LINK_PEER_REQUEST";
+export const LINK_PEER_SUCCESS = "LINK_PEER_SUCCESS";
+export const LINK_PEER_FAILURE = "LINK_PEER_FAILURE";
 
-export const UNPEER_REQUEST = "UNPEER_REQUEST";
-export const UNPEER_SUCCESS = "UNPEER_SUCCESS";
-export const UNPEER_FAILURE = "UNPEER_FAILURE";
+export const UNLINK_PEER_REQUEST = "UNLINK_PEER_REQUEST";
+export const UNLINK_PEER_SUCCESS = "UNLINK_PEER_SUCCESS";
+export const UNLINK_PEER_FAILURE = "UNLINK_PEER_FAILURE";
 
 const dummyUser = (data) => ({
   ...data,

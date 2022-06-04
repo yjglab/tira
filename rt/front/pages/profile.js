@@ -3,20 +3,10 @@ import Head from "next/head";
 import AppLayout from "../components/AppLayout";
 import NicknameEditForm from "../components/NicknameEditForm";
 import PeerList from "../components/PeerList";
+import { useSelector } from "react-redux";
 
 const Profile = () => {
-  const peersList = [
-    { nickname: "티라Official" },
-    { nickname: "티라미" },
-    { nickname: "티라노" },
-    { nickname: "티라누" },
-  ];
-  const peeringsList = [
-    { nickname: "더미1" },
-    { nickname: "더미2" },
-    { nickname: "더미3" },
-    { nickname: "더미4" },
-  ];
+  const { me } = useSelector((state) => state.user);
   return (
     <>
       <Head>
@@ -24,8 +14,8 @@ const Profile = () => {
       </Head>
       <AppLayout>
         <NicknameEditForm />
-        <PeerList header="피어링 목록" data={peeringsList} />
-        <PeerList header="피어 목록" data={peersList} />
+        <PeerList header="피어링 목록" data={me.Peerings} />
+        <PeerList header="피어 목록" data={me.Peers} />
       </AppLayout>
     </>
   );

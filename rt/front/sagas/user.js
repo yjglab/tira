@@ -18,6 +18,7 @@ function logInAPI(data) {
 
 function* logIn(action) {
   try {
+    console.log("saga login");
     // const result = yield call(logInAPI, action.data); // logInAPI, loginAPI의 인자
     delay(1000);
     yield put({

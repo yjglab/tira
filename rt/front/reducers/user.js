@@ -40,13 +40,20 @@ export const UNLINK_PEER_REQUEST = "UNLINK_PEER_REQUEST";
 export const UNLINK_PEER_SUCCESS = "UNLINK_PEER_SUCCESS";
 export const UNLINK_PEER_FAILURE = "UNLINK_PEER_FAILURE";
 
+export const ADD_POST_TO_ME = "ADD_POST_TO_ME";
+export const REMOVE_POST_OF_ME = "REMOVE_POST_OF_ME";
+
 const dummyUser = (data) => ({
   ...data,
   id: 1,
-  nickname: "yjglab",
-  Posts: [],
-  Peerings: [],
-  Peers: [],
+  nickname: "관리자",
+  Posts: [{ id: 1 }],
+  Peerings: [
+    { nickname: "둥둥1" },
+    { nickname: "둥둥2" },
+    { nickname: "둥둥3" },
+  ],
+  Peers: [{ nickname: "둥둥1" }, { nickname: "둥둥2" }, { nickname: "둥둥3" }],
 });
 // action 생성기
 export const loginRequestAction = (data) => {
@@ -145,6 +152,19 @@ const reducer = (state = initialState, action) => {
         ...state,
         changeNicknameLoading: false,
         changeNicknameError: action.error,
+      };
+    case ADD_POST_TO_ME:
+      return {
+        ...state,
+        me: { ...state.me, Posts: [{ id: action.data }, ...state.me.Posts] },
+      };
+    case REMOVE_POST_OF_ME:
+      return {
+        ...state,
+        me: {
+          ...state.me,
+          Posts: state.me.Posts.filter((v) => v.id !== action.data),
+        },
       };
     default:
       return state;

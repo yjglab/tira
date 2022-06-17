@@ -32,7 +32,7 @@ const PostForm = () => {
         value={text}
         onChange={onChangeText}
         maxLength={140}
-        placeholder="회원님의 의견을 남겨주세요"
+        placeholder="예쁘고 멋진 리뷰를 남겨주세요❤"
       />
       <div>
         <input type="file" multiple hidden ref={imageInputRef}></input>

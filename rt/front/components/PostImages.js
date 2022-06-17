@@ -5,7 +5,7 @@ import { PlusOutlined } from "@ant-design/icons";
 import ImagesZoom from "./ImagesZoom";
 
 const PostImages = ({ images }) => {
-  const [showImageaZoom, setShowImagesZoom] = useState(false);
+  const [showImagesZoom, setShowImagesZoom] = useState(false);
   const onZoom = useCallback(() => {
     setShowImagesZoom(true);
   }, []);
@@ -21,7 +21,7 @@ const PostImages = ({ images }) => {
           style={{ maxHeight: "200px" }}
           onClick={onZoom}
         />
-        {showImageaZoom && <ImagesZoom images={images} onClose={onClode} />}
+        {showImagesZoom && <ImagesZoom images={images} onClose={onClode} />}
       </>
     );
   } else if (images.length === 2) {
@@ -39,7 +39,7 @@ const PostImages = ({ images }) => {
           alt={images[1].src}
           onClick={onZoom}
         />
-        {showImageaZoom && <ImagesZoom images={images} onClose={onClode} />}
+        {showImagesZoom && <ImagesZoom images={images} onClose={onClode} />}
       </>
     );
   }
@@ -48,7 +48,7 @@ const PostImages = ({ images }) => {
       <div>
         <img
           role="presentation"
-          style={{ width: "50%" }}
+          style={{ width: "70%" }}
           src={images[0].src}
           alt={images[0].src}
           onClick={onZoom}
@@ -57,7 +57,7 @@ const PostImages = ({ images }) => {
           role="presentation"
           style={{
             display: "inline-block",
-            width: "50%",
+            width: "30%",
             textAlign: "center",
             verticalAlign: "middle",
           }}
@@ -68,7 +68,7 @@ const PostImages = ({ images }) => {
           {images.length - 1} 개의 사진 더보기
         </div>
       </div>
-      {showImageaZoom && <ImagesZoom images={images} onClose={onClode} />}
+      {showImagesZoom && <ImagesZoom images={images} onClose={onClode} />}
     </>
   );
 };

@@ -2,12 +2,13 @@ import React from "react";
 import PropTypes from "prop-types";
 import "antd/dist/antd.css";
 import Head from "next/head";
-
+import GlobalStyle from "../components/GlobalStyle";
 import wrapper from "../store/configureStore";
 // pages 파일들 중 공통부분 처리
 const App = ({ Component }) => {
   return (
     <>
+      <GlobalStyle />
       <Head>
         <meta charSet="utf-8" />
         <title>TIRA</title>

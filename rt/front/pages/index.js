@@ -12,6 +12,10 @@ const Home = () => {
     <>
       <Head>
         <title>홈 | TIRA</title>
+        <link
+          rel="stylesheet"
+          href="https://unpkg.com/@kfonts/nexon-lv2-gothic/index.css"
+        />
       </Head>
       <AppLayout>
         {me && <PostForm />}

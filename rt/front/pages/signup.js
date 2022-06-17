@@ -8,6 +8,7 @@ import { SIGN_UP_REQUEST } from "../reducers/user";
 import { useDispatch, useSelector } from "react-redux";
 
 // styled
+
 const ErrorMessage = styled.div`
   color: tomato;
 `;
@@ -102,7 +103,7 @@ const Signup = () => {
           </div>
           <div>
             <Checkbox name="user-term" checked={term} onChange={onChangeTerm}>
-              티라 멤버스 등록에 동의합니다.
+              티라 회원 등록과 개별 정보 수집에 동의합니다.
             </Checkbox>
             {termError && (
               <Alert

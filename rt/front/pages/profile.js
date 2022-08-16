@@ -10,7 +10,7 @@ const Profile = () => {
   return (
     <>
       <Head>
-        <title>내 정보 | TIRA</title>
+        <title>Profile | TIRA</title>
       </Head>
       <AppLayout>
         <NicknameEditForm />

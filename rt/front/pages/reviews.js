@@ -11,16 +11,17 @@ const Home = () => {
   return (
     <>
       <Head>
-        <title>Intro | TIRA</title>
+        <title>Reviews | TIRA</title>
         <link
           rel="stylesheet"
           href="https://unpkg.com/@kfonts/nexon-lv2-gothic/index.css"
         />
       </Head>
       <AppLayout>
-        <div style={{ width: "100%" }}>
-          <img src="/img/banner.jpg" style={{ width: "100%" }} />
-        </div>
+        {me && <PostForm />}
+        {mainPosts.map((post) => (
+          <PostCard key={post.id} post={post} />
+        ))}
       </AppLayout>
     </>
   );

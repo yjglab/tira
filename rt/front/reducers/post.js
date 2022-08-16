@@ -81,7 +81,7 @@ const dummyPost = (data) => ({
   content: data.content,
   User: {
     id: 1,
-    nickname: "포스팅 어드민",
+    nickname: "관리자",
   },
   Images: [],
   Comments: [],
@@ -91,7 +91,7 @@ const dummyComment = (data) => ({
   content: data,
   User: {
     id: 1,
-    nickname: "댓글 어드민",
+    nickname: "관리자",
   },
 });
 

@@ -34,31 +34,41 @@ const AppLayout = ({ children }) => {
       <Menu mode="horizontal">
         <Menu.Item>
           <Link href="/">
-            <a>홈</a>
+            <a>소개</a>
+          </Link>
+        </Menu.Item>
+        <Menu.Item>
+          <Link href="/menu">
+            <a>메뉴</a>
           </Link>
         </Menu.Item>
         <Menu.Item>
           <Link href="/profile">
-            <a>내 정보</a>
+            <a>프로필</a>
           </Link>
         </Menu.Item>
         <Menu.Item>
-          <SearchInput enterButton />
+          <Link href="/reviews">
+            <a>리뷰</a>
+          </Link>
         </Menu.Item>
         <Menu.Item>
           <Link href="/signup">
             <a>회원등록</a>
           </Link>
         </Menu.Item>
+        <Menu.Item>
+          <SearchInput enterButton />
+        </Menu.Item>
       </Menu>
       <Row gutter={8}>
         <Col xs={24} md={6}>
           {me ? <UserProfile /> : <LoginForm />}
         </Col>
-        <Col xs={24} md={12}>
+        <Col xs={24} md={16}>
           {children}
         </Col>
-        <Col xs={24} md={6}>
+        <Col xs={24} md={2}>
           <a
             href="https://yjg-lab.tistory.com/"
             target="_blank"
@@ -66,6 +76,7 @@ const AppLayout = ({ children }) => {
           >
             yjglab
           </a>
+          <span> 2022</span>
         </Col>
       </Row>
     </div>
